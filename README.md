@@ -2,4 +2,4 @@
 
 hot-reload, sass, & uglify
 
-#still edit config yet
+PS.still edit config yet
