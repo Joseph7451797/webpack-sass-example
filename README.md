@@ -1,3 +1,3 @@
 # webpack-reload-test
 
-hot-reload, less, & uglify 
+hot-reload, sass, & uglify
