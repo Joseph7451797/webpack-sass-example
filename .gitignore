@@ -1,0 +1,12 @@
+# system file
+*.DS_Store
+
+# compiler tool file	
+.codekit-cache
+config.codekit
+config.rb
+.sass-cache/
+.fontcustom-manifest.json
+	
+# node file	
+node_modules/
