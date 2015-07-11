@@ -7,12 +7,12 @@ var config = {
 	//     this.module.noParse.push(new RegExp('^' + name + '$'));
 	// },
 	entry: {
-		app: ["./js/pages/pages.js"],
-		vendors: ['jquery','jquery-validation']
+		app: ["./js/test.js"],
+		vendors: ['jquery']
 	},
 	resolve :{alias: {}},
 	output: {
-		path: "./build",
+		path: "./js/build",
 		publicPath: "/build/",
 		filename: "[name].js",
 	},
