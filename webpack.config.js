@@ -7,15 +7,29 @@ var config = {
 	//     this.module.noParse.push(new RegExp('^' + name + '$'));
 	// },
 	entry: {
-		app: ["./js/test.js"],
-		vendors: ['jquery']
+    	app: [
+			"webpack-dev-server/client?http://localhost:3000",
+	    	"webpack/hot/dev-server",
+			"./js/test.js",
+			"./js/allvars.js"
+		]
+		// vendors: [
+		// 	'jquery'
+		// ]
 	},
-	resolve :{alias: {}},
+	devtool: "eval-source-map",
+	debug: true,
 	output: {
 		path: "./js/build",
 		publicPath: "/build/",
 		filename: "[name].js",
 	},
+	plugins: [
+	    // new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+	    new webpack.HotModuleReplacementPlugin(),
+	    new webpack.NoErrorsPlugin()
+	],
+	resolve :{alias: {}},
   	module: {
   		noParse: [],
   		loaders:[
@@ -33,10 +47,7 @@ var config = {
 	            loader: "uglify"
 	        }
   		]
-	},
-	plugins: [
-	    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
-	]
+	}
 };
 
 module.exports = config;
