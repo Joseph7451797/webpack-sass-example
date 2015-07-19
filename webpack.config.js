@@ -10,25 +10,25 @@ var config = {
     	app: [
 			"webpack-dev-server/client?http://localhost:3000",
 	    	"webpack/hot/dev-server",
-			"./js/test.js",
-			"./js/allvars.js"
+			"./js/test.js"
+			// "./js/allvars.js"
 		]
 		// vendors: [
 		// 	'jquery'
 		// ]
 	},
-	devtool: "eval-source-map",
-	debug: true,
+	// devtool: "eval-source-map",
+	// debug: true,
 	output: {
 		path: "./js/build",
 		publicPath: "/build/",
 		filename: "[name].js",
 	},
-	plugins: [
-	    // new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-	    new webpack.HotModuleReplacementPlugin(),
-	    new webpack.NoErrorsPlugin()
-	],
+	// plugins: [
+	//     // new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+	//     new webpack.HotModuleReplacementPlugin(),
+	//     new webpack.NoErrorsPlugin()
+	// ],
 	resolve :{alias: {}},
   	module: {
   		noParse: [],
