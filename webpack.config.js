@@ -1,53 +1,50 @@
-var webpack = require('webpack');
-var path = require('path');
+'use strict'
+
+var webpack = require('webpack')
+var path = require('path')
 
 var config = {
 	// addVendor: function (name, path) {
 	//     this.resolve.alias[name] = path;
 	//     this.module.noParse.push(new RegExp('^' + name + '$'));
 	// },
-	entry: {
-    	app: [
-			"webpack-dev-server/client?http://localhost:3000",
-	    	"webpack/hot/dev-server",
-			"./js/test.js"
-			// "./js/allvars.js"
-		]
-		// vendors: [
-		// 	'jquery'
-		// ]
-	},
-	// devtool: "eval-source-map",
-	// debug: true,
+	cache: true,
+	debug: true,
+	entry: [
+			"webpack-dev-server/client?http://127.0.0.1:8080",
+			"webpack/hot/only-dev-server",
+			"./js/test.js",
+			"./scss/screen.scss"
+	],
 	output: {
-		path: "./js/build",
+		path: __dirname + "/js/build/",
 		publicPath: "/build/",
-		filename: "[name].js",
+		filename: "[name].js"
 	},
-	// plugins: [
-	//     // new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-	//     new webpack.HotModuleReplacementPlugin(),
-	//     new webpack.NoErrorsPlugin()
-	// ],
+	stats: {
+	  colors: true,
+	  reasons: true
+	},
 	resolve :{alias: {}},
   	module: {
   		noParse: [],
-  		loaders:[
-  			{
-  			  test   : /.scss$/,
-  			  loader : 
-  			     'style-loader!css-loader!sass-loader?includePaths[]=' 
-  			      + path.resolve(__dirname, './node_modules/compass-mixins/lib')
-  			},
-  			{
-  				// TODO
-	            // I want to uglify with mangling only app files, not thirdparty libs
-	            test: /.*\/app\/.*\.js$/,
-	            // exclude: /.spec.js/, // excluding .spec files
-	            loader: "uglify"
-	        }
-  		]
-	}
+  		loaders: [
+	      { 
+	        test   : /\.less$/,
+	        loader : 'style-loader!css-loader!less-loader'
+	      },
+	      {
+	        test   : /.scss$/,
+	        loader : 
+	           'style-loader!css-loader!sass-loader?includePaths[]=' 
+	            + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+	      }
+	    ]
+	},
+	plugins: [
+	  new webpack.HotModuleReplacementPlugin(),
+	  new webpack.optimize.CommonsChunkPlugin('init.js')
+	]
 };
 
 module.exports = config;

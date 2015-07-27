@@ -6,7 +6,7 @@
 config.codekit
 config.rb
 .sass-cache/
-.fontcustom-manifest.json
+##.fontcustom-manifest.json
 	
 # node file	
 node_modules/
