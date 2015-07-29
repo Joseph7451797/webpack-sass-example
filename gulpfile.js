@@ -28,11 +28,17 @@ gulp.task('watch', function() {
   var server = new WebpackServer(compiler, {
     hot: true,
     contentBase: __dirname + '/js/',
-    publicPath: '/build',
+    publicPath: '/',
     filename: 'main.js'
   })
 
   server.listen(8080)
+
+  // 建立即時重整伺服器
+  //livereload.listen();
+
+  // 看守所有位在 dist/  目錄下的檔案，一旦有更動，便進行重整
+  //gulp.watch(['/**']).on('change', livereload.changed);
 })
 
 gulp.task('build', ['clean'], function(done) {
