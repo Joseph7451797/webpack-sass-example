@@ -2,49 +2,51 @@
 
 var webpack = require('webpack')
 var path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-var config = {
-	// addVendor: function (name, path) {
-	//     this.resolve.alias[name] = path;
-	//     this.module.noParse.push(new RegExp('^' + name + '$'));
-	// },
+var options = {
 	cache: true,
 	debug: true,
-	entry: [
+	entry: {
+		main: [
 			"webpack-dev-server/client?http://127.0.0.1:8080",
 			"webpack/hot/only-dev-server",
 			"./js/test.js",
 			"./scss/screen.scss"
-	],
+		]
+	},
 	output: {
 		path: __dirname + "/js/build/",
-		publicPath: "/build/",
+		publicPath: "http://localhost:8080/js/build/",
 		filename: "[name].js"
 	},
 	stats: {
 	  colors: true,
 	  reasons: true
 	},
-	resolve :{alias: {}},
   	module: {
-  		noParse: [],
   		loaders: [
-	      { 
-	        test   : /\.less$/,
-	        loader : 'style-loader!css-loader!less-loader'
-	      },
-	      {
-	        test   : /.scss$/,
-	        loader : 
-	           'style-loader!css-loader!sass-loader?includePaths[]=' 
-	            + path.resolve(__dirname, './node_modules/compass-mixins/lib')
-	      }
+  			{
+  				test : /\.(woff|ttf|svg|eot|jpg|png|git)$/, 
+  				loader: 'url-loader?limit=8000'
+  			},
+  			{
+  				test   : /.scss$/,
+  				loader : 'style-loader!css-loader!sass-loader?includePaths[]=' 
+  			      + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+  			},
+	      	{ 
+	    		test   : /\.less$/,
+	        	loader : 'style-loader!css-loader!less-loader'
+	      	}
 	    ]
 	},
+	recordsPath: __dirname + '/build/[hash].hot-update.json',
 	plugins: [
 	  new webpack.HotModuleReplacementPlugin(),
-	  new webpack.optimize.CommonsChunkPlugin('init.js')
+	  // new webpack.optimize.CommonsChunkPlugin('init.js')
+	  // new ExtractTextPlugin('[name].css')
 	]
-};
+}
 
-module.exports = config;
+module.exports = options
