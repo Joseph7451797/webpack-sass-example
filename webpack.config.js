@@ -41,7 +41,7 @@ var options = {
 	      	}
 	    ]
 	},
-	recordsPath: __dirname + '/build/[hash].hot-update.json',
+	recordsPath: __dirname + '/dev-log/[hash].hot-update.json',
 	plugins: [
 	  new webpack.HotModuleReplacementPlugin(),
 	  // new webpack.optimize.CommonsChunkPlugin('init.js')
