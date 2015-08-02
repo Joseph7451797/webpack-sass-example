@@ -11,3 +11,6 @@ dev-log/*
 	
 # node file	
 node_modules/
+
+#built file
+build/*

@@ -2,17 +2,18 @@
 
 var webpack = require('webpack')
 var path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var options = {
   debug: false,
   entry: {
     main: [
         "./js/test.js",
-        "./scss/screen.scss"
+        "./scss/main.scss"
     ]
   },
   output: {
-    path: __dirname + "/js/build/",
+    path: __dirname + "/build/",
     publicPath: "/build/",
     filename: '[name].js'
   },
@@ -24,8 +25,11 @@ var options = {
       },
       {
         test   : /.scss$/,
-        loader : 'style-loader!css-loader!sass-loader?includePaths[]=' 
+        loader : ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader!sass-loader?includePaths[]=' 
             + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+          )
       },
       { 
         test   : /\.less$/,
@@ -39,9 +43,10 @@ var options = {
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: true
       }
-    })
+    }),
+    new ExtractTextPlugin('./[name].css')
   ]
 }
 

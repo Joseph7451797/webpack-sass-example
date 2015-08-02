@@ -5,8 +5,8 @@
   "author": "Joseph Chang",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --watch webpack-dev-server --hot --devtool eval --progress --colors --port 8080 --inline",
-    "build": "webpack"
+    "dev": "webpack-dev-server --config webpack.config.js --hot --progress --colors --port 8080 --inline",
+    "build": "webpack --config webpack.build.config.js --progress --profile --colors"
   },
   "devDependencies": {
     "compass-mixins": "^0.12.7",
@@ -16,12 +16,6 @@
     "css-loader": "^0.9.1",
     "style-loader": "^0.8.3",
     "url-loader": ">=0.5.5",
-    "del": "^1.1.1",
-    "gulp": "^3.8.10",
-    "gulp-livereload": "3.8.0",
-    "gulp-rev": "^3.0.0",
-    "gulp-uglify": "^1.1.0",
-    "gulp-usemin": "^0.3.11",
     "jquery": "^1.11.3",
     "webpack": "^1.10.5",
     "webpack-dev-server": "^1.7.0",

@@ -7,17 +7,18 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var options = {
 	cache: true,
 	debug: true,
+	devtool: 'eval',
 	entry: {
 		main: [
 			"webpack-dev-server/client?http://127.0.0.1:8080",
 			"webpack/hot/only-dev-server",
 			"./js/test.js",
-			"./scss/screen.scss"
+			"./scss/main.scss"
 		]
 	},
 	output: {
-		path: __dirname + "/js/build/",
-		publicPath: "http://localhost:8080/js/build/",
+		path: __dirname + "/build/",
+		publicPath: "http://localhost:8080/build/",
 		filename: "[name].js"
 	},
 	stats: {
@@ -32,8 +33,11 @@ var options = {
   			},
   			{
   				test   : /.scss$/,
-  				loader : 'style-loader!css-loader!sass-loader?includePaths[]=' 
+  				loader : ExtractTextPlugin.extract(
+  					'style-loader',
+  					'css-loader!sass-loader?includePaths[]=' 
   			      + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+  			    )
   			},
 	      	{ 
 	    		test   : /\.less$/,
@@ -44,8 +48,7 @@ var options = {
 	recordsPath: __dirname + '/dev-log/[hash].hot-update.json',
 	plugins: [
 	  new webpack.HotModuleReplacementPlugin(),
-	  // new webpack.optimize.CommonsChunkPlugin('init.js')
-	  // new ExtractTextPlugin('[name].css')
+	  new ExtractTextPlugin('./main.css')
 	]
 }
 
