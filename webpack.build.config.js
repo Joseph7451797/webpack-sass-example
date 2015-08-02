@@ -22,7 +22,7 @@ var options = {
     loaders: [
       {
         test : /\.(woff|ttf|svg|eot|jpg|png|git)$/, 
-        loader: 'url-loader?limit=8000'
+        loader: 'url-loader?limit=8192'
       },
       {
         test   : /.scss$/,

@@ -4,7 +4,7 @@
 
 ## 使用方法
 
-安裝必須模組：
+下載後安裝必須模組：
 
 ```text
 npm install
@@ -24,8 +24,8 @@ npm run dev
 npm run build
 ```
 
-
-附註：正在嘗試加入 html 熱載入的功能，持續更新中，預計還會加入 LESS 熱載入功能
+**附註：**
+持續更新中，預計還會加入 LESS 熱載入功能
 
 ## License
 

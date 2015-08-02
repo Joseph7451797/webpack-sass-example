@@ -21,6 +21,9 @@ var options = {
 		publicPath: "http://localhost:8080/build/",
 		filename: "[name].js"
 	},
+	// devServer: {
+	// 	  contentBase: __dirname
+	// },
 	stats: {
 	  colors: true,
 	  reasons: true
@@ -29,7 +32,7 @@ var options = {
   		loaders: [
   			{
   				test : /\.(woff|ttf|svg|eot|jpg|png|git)$/, 
-  				loader: 'url-loader?limit=8000'
+  				loader: 'url-loader?limit=8192'
   			},
   			{
   				test   : /.scss$/,
@@ -43,6 +46,11 @@ var options = {
 	    		test   : /\.less$/,
 	        	loader : 'style-loader!css-loader!less-loader'
 	      	}
+	      	// {
+        //         test: /\.html$/,
+        //         name: "mandrillTemplates",
+        //         loader: 'raw!html-minify'
+	      	// }
 	    ]
 	},
 	recordsPath: __dirname + '/dev-log/[hash].hot-update.json',

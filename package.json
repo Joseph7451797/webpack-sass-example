@@ -1,29 +1,29 @@
 {
   "name": "webpack-reload-test",
-  "description": "sass & less hot reload",
-  "version": "0.0.1",
+  "description": "sass & js hot reload",
+  "version": "1.0.0",
   "author": "Joseph Chang",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.config.js --hot --progress --colors --port 8080 --inline",
-    "build": "webpack --config webpack.build.config.js --progress --profile --colors"
+    "build": "webpack --config webpack.build.config.js -p --progress --profile --colors"
   },
   "devDependencies": {
     "compass-mixins": "^0.12.7",
+    "css-loader": "^0.9.1",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "html-minify-loader": "^1.0.0",
+    "jquery": "^1.11.3",
+    "less-loader": "^2.0.0",
     "node-sass": "^3.2.0",
     "sass-loader": "^0.4.2",
-    "less-loader": "^2.0.0",
-    "css-loader": "^0.9.1",
     "style-loader": "^0.8.3",
     "url-loader": ">=0.5.5",
-    "jquery": "^1.11.3",
     "webpack": "^1.10.5",
-    "webpack-dev-server": "^1.7.0",
-    "extract-text-webpack-plugin": "^0.8.2"
+    "webpack-dev-server": "^1.7.0"
   },
   "keywords": [
     "webpack",
-    "gulp",
     "jquery",
     "less",
     "sass",
