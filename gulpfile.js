@@ -8,7 +8,7 @@ var WebpackServer = require('webpack-dev-server')
 
 
 gulp.task('clean', function(done) {
-  del(['./js/build/*', '.tmp'], done)
+  del(['./build/*', '.tmp'], done)
 })
 
 

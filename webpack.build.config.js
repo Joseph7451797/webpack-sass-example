@@ -6,6 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var options = {
   debug: false,
+  devtool: 'cheap-module-source-map',
   entry: {
     main: [
         "./js/test.js",
