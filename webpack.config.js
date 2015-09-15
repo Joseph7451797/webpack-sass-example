@@ -46,7 +46,7 @@ var options = {
 	recordsPath: __dirname + '/dev-log/[hash].hot-update.json',
 	plugins: [
 	  new webpack.HotModuleReplacementPlugin(),
-	  new ExtractTextPlugin('./main.css')
+	  new ExtractTextPlugin('./[name].css')
 	]
 }
 

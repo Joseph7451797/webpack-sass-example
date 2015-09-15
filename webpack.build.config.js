@@ -47,7 +47,7 @@ var options = {
         warnings: true
       }
     }),
-    new ExtractTextPlugin('../css/[name].css')
+    new ExtractTextPlugin('./[name].css')
   ]
 }
 
