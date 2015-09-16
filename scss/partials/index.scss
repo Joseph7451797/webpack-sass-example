@@ -1,0 +1,14 @@
+/***************************
+*	
+*	Index Style
+*	Edited by Joseph Chang
+* 
+****************************/
+
+.test1 {
+	color: #dadada;
+	font-size: 54px;
+	// border: 5px solid #000;
+	background-color: rgba(51, 51, 51, 0.9);
+	@include box-shadow(0 0 2px 2px #dfdfdf);
+}

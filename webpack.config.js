@@ -10,8 +10,10 @@ var options = {
 	devtool: 'eval',
 	entry: {
 		main: [
-			"./js/test.js",
 			"./scss/main.scss"
+		],
+		index: [
+			"./js/test.js"
 		]
 	},
 	output: {
@@ -43,10 +45,14 @@ var options = {
 	      	}
 	    ]
 	},
-	recordsPath: __dirname + '/dev-log/[hash].hot-update.json',
 	plugins: [
-	  new webpack.HotModuleReplacementPlugin(),
-	  new ExtractTextPlugin('./[name].css')
+		new webpack.ProvidePlugin({
+		    $: 'jquery',
+		    jQuery: 'jquery',
+		    'window.jQuery': 'jquery',
+		    'root.jQuery': 'jquery'
+		}),
+		new ExtractTextPlugin('./[name].css')
 	]
 }
 

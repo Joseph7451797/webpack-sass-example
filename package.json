@@ -5,7 +5,7 @@
   "author": "Joseph Chang",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js --hot --progress --colors --port 8080 --inline",
+    "hot-dev": "webpack-dev-server --config webpack.config.js --hot --progress --colors --port 8080 --inline",
     "build": "webpack --config webpack.build.config.js -p --progress --profile --colors"
   },
   "devDependencies": {

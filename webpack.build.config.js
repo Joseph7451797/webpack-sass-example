@@ -9,8 +9,10 @@ var options = {
   devtool: 'cheap-module-source-map',
   entry: {
     main: [
-        "./js/test.js",
         "./scss/main.scss"
+    ],
+    index: [
+    	"./js/test.js"
     ]
   },
   output: {
@@ -39,12 +41,18 @@ var options = {
     ]
   },
   plugins: [
+	new webpack.ProvidePlugin({
+	  $: 'jquery',
+	  jQuery: 'jquery',
+	  'window.jQuery': 'jquery',
+	  'root.jQuery': 'jquery'
+	}),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: true
+        warnings: false
       }
     }),
     new ExtractTextPlugin('./[name].css')
