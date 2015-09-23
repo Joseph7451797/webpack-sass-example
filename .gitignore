@@ -13,5 +13,8 @@ npm-debug.log
 # node file	
 node_modules/
 
+# bower_components
+bower_components/
+
 #built file
 build/*

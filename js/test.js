@@ -3,6 +3,8 @@ var $ = require("jquery");
 
 // console.log(NewVar);
 
+
+
 $(document).ready(function() {
 	
 });
