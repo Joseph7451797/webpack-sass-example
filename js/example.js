@@ -8,3 +8,6 @@ var $div1 = $("#div1"),
 $div1.find('span').text(G.url());
 $div2.find('span').text(G.testIfMobile());
 $div3.find('span').text(G.windowWidth());
+
+G.testIfIE();
+
