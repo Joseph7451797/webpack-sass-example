@@ -10,6 +10,7 @@ $div1.find('span').text(G.url());
 $div2.find('span').text(G.testIfMobile());
 $div3.find('span').text(G.windowWidth());
 
+
 function _changeFavicon() {
 
 	var link = document.createElement('link');
@@ -41,3 +42,4 @@ $('button').on('click', function() {
 	// document.title = "changed title!"
 	//_changeFavicon();
 });
+
