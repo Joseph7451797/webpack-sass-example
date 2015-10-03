@@ -77,6 +77,7 @@ module.exports = function(options) {
 		resolve: {
 			alias: {
 				"jquery": bower_dir + '/jquery/dist/jquery.min.js',
+				"history-js": bower_dir + '/history.js/scripts/bundled/html4+html5/jquery.history.js',
 				"ui-core": bower_dir + '/jquery-ui/ui/core.js',
 				"ui-widget": bower_dir + '/jquery-ui/ui/widget.js',
 				"ui-position": bower_dir + '/jquery-ui/ui/position.js',
