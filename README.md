@@ -1,6 +1,7 @@
 # webpack-reload-test
 
-支援 SCSS、JS 熱載入，有開發模式與產出（build）模式兩種設定，詳見 webpack.config.js 與 webpack.build.config.js
+支援 SCSS、JS 熱載入，有開發模式與產出（build）模式兩種設定，詳見 webpack-hot-dev-server.config.js 與 webpack.build.config.js
+(原本的 webpack.config.js 已棄用)
 
 ## 使用方法
 
@@ -9,11 +10,14 @@
 ```text
 npm install
 ```
+```text
+bower install
+```
 
 啟動開發模式：
 
 ```text
-npm run dev
+npm run hot-dev
 ```
 瀏覽器打開 http://127.0.0.1:8080 可以享受熱載入的功能
 
@@ -25,7 +29,7 @@ npm run build
 ```
 <br/>
 **附註：**
-持續更新中，預計還會加入 LESS 熱載入功能
+持續更新中，LESS 熱載入功能遙遙無期
 
 ## License
 

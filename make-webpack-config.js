@@ -76,13 +76,7 @@ module.exports = function(options) {
 		module: module,
 		resolve: {
 			alias: {
-				"jquery": bower_dir + '/jquery/dist/jquery.min.js',
-				"history-js": bower_dir + '/history.js/scripts/bundled/html4+html5/jquery.history.js',
-				"ui-core": bower_dir + '/jquery-ui/ui/core.js',
-				"ui-widget": bower_dir + '/jquery-ui/ui/widget.js',
-				"ui-position": bower_dir + '/jquery-ui/ui/position.js',
-				"ui-menu": bower_dir + '/jquery-ui/ui/menu.js',
-				"ui-autocomplete": bower_dir + '/jquery-ui/ui/autocomplete.js'
+				"jquery": bower_dir + '/jquery/dist/jquery.min.js'
 			}
 		},
 		plugins: plugins
