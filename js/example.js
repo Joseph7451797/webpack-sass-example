@@ -1,5 +1,6 @@
 var global = require('./global.js');
 var G = new global();
+var obj;
 
 var $div1 = $("#div1"),
 	$div2 = $("#div2"),
