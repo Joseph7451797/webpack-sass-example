@@ -1,5 +1,11 @@
 module.exports = function(param) {
 	
+	function Global(){}
+
+	Global.prototype.url = function(){
+
+	}
+
 	this.url 	  		= function() {
 		
 		var	location = window.location,
@@ -10,7 +16,7 @@ module.exports = function(param) {
 
 		return finalPath;
 	};
-	this.testIfMobile 	= function() {
+	this.testIfMobile 	= function(data) {
 
 		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 			return true;
@@ -40,4 +46,10 @@ module.exports = function(param) {
 	};
 	this.constant = "1";
 	this.arra = ["oh","yeah"];
+
+
+	result = new Global();
+
+	return result; 
+
 }

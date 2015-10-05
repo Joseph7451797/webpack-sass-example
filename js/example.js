@@ -11,3 +11,5 @@ $div3.find('span').text(G.windowWidth());
 
 G.testIfIE();
 
+console.log(G.constants.b);
+
