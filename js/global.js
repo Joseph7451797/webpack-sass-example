@@ -1,10 +1,4 @@
-module.exports = function(param) {
-	
-	function Global(){}
-
-	Global.prototype.url = function(){
-
-	}
+module.exports = function() {
 
 	this.url 	  		= function() {
 		
@@ -46,10 +40,4 @@ module.exports = function(param) {
 	};
 	this.constant = "1";
 	this.arra = ["oh","yeah"];
-
-
-	result = new Global();
-
-	return result; 
-
 }
