@@ -1,4 +1,4 @@
-module.exports = function() {
+var Global = function() {
 
 	this.url 	  		= function() {
 		
@@ -41,3 +41,7 @@ module.exports = function() {
 	this.constant = "1";
 	this.arra = ["oh","yeah"];
 }
+
+var G = new Global();
+
+module.exports = G;

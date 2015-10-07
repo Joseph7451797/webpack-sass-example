@@ -1,5 +1,4 @@
-var global = require('./global.js');
-var G = new global();
+var G = require('./global.js');
 
 var $div1 = $("#div1"),
 	$div2 = $("#div2"),
