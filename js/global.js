@@ -10,6 +10,26 @@ var Global = function() {
 
 		return finalPath;
 	};
+	this.limit 			= function() { 
+  
+		var self = $("p[data-limit]"); 
+	  
+	  	self.each(function() { 
+	    
+	    	var $this = $(this);
+	    	var objString = $this.text();
+	    	var objOriBBtext = $this.val();
+	    	var objLength = objString.length; 
+	    	var num = Number($this.data("limit")); 
+	    
+	    	if( objLength > num) { 
+	    		$this.attr("data-text",objOriBBtext); 
+	      		objString = $this.text(objString.substring(0, num) + "..."); 
+	     	}
+	    
+	  	});
+	  
+	};
 	this.testIfMobile 	= function(data) {
 
 		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

@@ -9,3 +9,6 @@ $div2.find('span').text(G.testIfMobile());
 $div3.find('span').text(G.windowWidth());
 
 
+$(function(){ 
+	G.limit();
+}); 
