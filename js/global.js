@@ -6,7 +6,7 @@ var Global = function() {
 			protocol = location.protocol,
 			host = location.host,
 			apiPath = protocol + "//" + host + "/" + "api.php",
-			finalPath = (host === "localhost:8080") ? "http://movie.ck101.test/api.php" : apiPath;
+			finalPath = (host === "localhost:8080") ? "http://test-hostname/api.php" : apiPath;
 
 		return finalPath;
 	};
