@@ -2,11 +2,8 @@ var Global = function() {
 
 	this.url 	  		= function() {
 		
-		var	location = window.location,
-			protocol = location.protocol,
-			host = location.host,
-			apiPath = protocol + "//" + host + "/" + "api.php",
-			finalPath = (host === "localhost:8080") ? "http://test-hostname/api.php" : apiPath;
+		var	apiPath = location.origin + '/' + 'api.php',
+			finalPath = location.host === 'localhost:8080' ? 'http://test-hostname/api.php' : apiPath;
 
 		return finalPath;
 	};
@@ -63,5 +60,4 @@ var Global = function() {
 }
 
 var G = new Global();
-
 module.exports = G;
