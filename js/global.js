@@ -1,17 +1,17 @@
-var Global = function() {
-
-	this.url 	  		= function() {
+var Global = {
+	windowWidth: window.innerWidth,
+	_url: function() {
 		
 		var	apiPath = location.origin + '/' + 'api.php',
 			finalPath = location.host === 'localhost:8080' ? 'http://test-hostname/api.php' : apiPath;
 
 		return finalPath;
-	};
-	this.limit 			= function() { 
-  
-		var self = $("p[data-limit]"); 
-	  
-	  	self.each(function() { 
+	},
+	_limit: function() {
+
+		var self = $('p[data-limit]'); 
+			  
+	  	self.each(function() {
 	    
 	    	var $this = $(this);
 	    	var objString = $this.text();
@@ -25,20 +25,16 @@ var Global = function() {
 	     	}
 	    
 	  	});
-	  
-	};
-	this.testIfMobile 	= function(data) {
+	},
+	_testIfMobile: function() {
 
 		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 			return true;
 		}else {
 			return false;
 		}
-	};
-	this.windowWidth          = function() {
-		return window.innerWidth;
-	};
-	this.testIfIE = function() {
+	},
+	_testIfOldIE: function() {
 
 		var isIE7 = navigator.userAgent.search("MSIE 7") > -1; 
 		var isIE8 = navigator.userAgent.search("MSIE 8") > -1;
@@ -48,16 +44,18 @@ var Global = function() {
 
 		if(isIE7 || isIE8 || isIE9 || isIE10) {
 			alert("小提醒：建議大家使用 IE11 以上版本，或是支援度更佳的 Chrome 瀏覽器");
+		}else {
+			console.log('Modern Browser!!!');
 		}
+	},
+	_log: function(arg) {
 
-	};
-	this.constants = {
-		"a": "1",
-		"b": "2"
-	};
-	this.constant = "1";
-	this.arra = ["oh","yeah"];
-}
+		if( arg !== undefined ) {
+			console.log(arg);
+		}else {
+			console.warn('It seems that you forgot argument(s)!!!');
+		}
+	}
+};
 
-var G = new Global();
-module.exports = G;
+module.exports = Global;

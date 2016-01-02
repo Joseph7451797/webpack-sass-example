@@ -23,9 +23,6 @@ module.exports = function(options) {
 				test : /\.(woff|ttf|svg|eot|jpg|png|git|gif)$/, 
 				loader: 'url-loader?limit=8192'
 			},
-			// {	test: /[\\\/]bower_components[\\\/]modernizr[\\\/]modernizr\.js$/,
-			// 	loader: "imports?this=>window!exports?window.Modernizr" 
-			// },
 			{
   				test   : /.scss$/,
   				loader : ExtractTextPlugin.extract(
