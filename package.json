@@ -13,6 +13,9 @@
     "build": "webpack --config webpack.build.config.js -p --progress --profile --colors"
   },
   "dependencies": {
+    "jquery": "*"
+  },
+  "devDependencies": {
     "compass-mixins": "^0.12.7",
     "css-loader": "^0.9.1",
     "extract-text-webpack-plugin": "^0.8.2",

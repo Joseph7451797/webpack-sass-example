@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var bower_dir = __dirname + '/bower_components';
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(options) {
@@ -73,7 +72,7 @@ module.exports = function(options) {
 		module: module,
 		resolve: {
 			alias: {
-				"jquery": bower_dir + '/jquery/dist/jquery.min.js'
+				"jquery": __dirname + '/node_modules/jquery/dist/jquery.min.js'
 			}
 		},
 		plugins: plugins

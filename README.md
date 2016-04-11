@@ -10,9 +10,6 @@
 ```text
 npm install
 ```
-```text
-bower install
-```
 
 啟動開發模式：
 
@@ -27,7 +24,7 @@ npm run hot-dev
 ```text
 npm run build
 ```
-<br/>
+<br>
 **附註：**
 持續更新中，LESS 熱載入功能遙遙無期
 
