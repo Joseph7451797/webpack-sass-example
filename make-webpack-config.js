@@ -23,7 +23,7 @@ module.exports = function(options) {
 				loader: 'url-loader?limit=8192'
 			},
 			{
-  				test   : /.scss$/,
+  				test   : /\.scss$/,
   				loader : ExtractTextPlugin.extract(
   					'style-loader',
   					'css-loader!sass-loader?includePaths[]=' 
