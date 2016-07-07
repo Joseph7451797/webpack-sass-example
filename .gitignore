@@ -1,15 +1,12 @@
 # system file
 *.DS_Store
+*.swp
 
-# compiler tool file	
-dev-log/*
+# compiler tool file
 npm-debug.log
-	
-# node file	
+
+# node file
 node_modules/
 
-# bower_components
-bower_components/
-
 #built file
-build/*
+build/
