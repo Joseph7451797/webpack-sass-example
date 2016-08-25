@@ -1,6 +1,13 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var Dashboard = require('webpack-dashboard'); // load webpack-dashboard
+var DashboardPlugin = require('webpack-dashboard/plugin'); // load webpack-dashboard plugin
+
+// config required variables
+var build_dirname = 'build';
+var port = '8080';
+
 
 module.exports = function(options) {
     var entry = {
@@ -8,10 +15,15 @@ module.exports = function(options) {
             "./scss/main.scss"
         ]
     };
+    
+    // if in hot-dev mode, add HMR js
+    if( options.devMode ) {
+        entry.main.push('webpack/hot/dev-server', 'webpack-dev-server/client?http://localhost:' + port + '/');
+    }
 
     var output = {
-        publicPath: (options.devMode) ? "http://localhost:8080/build/" : "/build/",
-        path: __dirname + "/build/",
+        publicPath: options.devMode ? 'http://localhost:' + port + '/' + build_dirname + '/' : '/' + build_dirname + '/',
+        path: __dirname + '/' + build_dirname + '/',
         filename: "[name].js"
     };
 
@@ -32,9 +44,10 @@ module.exports = function(options) {
         ]
     };
 
+    // init webpack-dashboard plugin
+    var dashboard = options.devMode || options.build ? new Dashboard() : null;
 
     var plugins = [
-
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
@@ -45,21 +58,28 @@ module.exports = function(options) {
     ];
 
 
-    if(options.build) {
+    if( options.build ) {
         plugins.push(
-                new webpack.optimize.DedupePlugin(),
-                new webpack.optimize.OccurenceOrderPlugin(),
-                new webpack.optimize.AggressiveMergingPlugin(),
-                new webpack.optimize.UglifyJsPlugin({
-                    compress: {
-                        warnings: false
-                    }
-                })
-                );
-    }else if(options.devMode) {
+            new DashboardPlugin(dashboard.setData),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.OccurenceOrderPlugin(),
+            new webpack.optimize.AggressiveMergingPlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            })
+        );
+    }else if( options.devMode ) {
         plugins.push(
-                new webpack.NoErrorsPlugin()
-                );
+            new DashboardPlugin(dashboard.setData),
+            new webpack.NoErrorsPlugin(),
+            new webpack.HotModuleReplacementPlugin()
+        );
+    }else if( options.hostMode ) {
+        plugins.push(
+            new webpack.NoErrorsPlugin()
+        );
     }
 
 

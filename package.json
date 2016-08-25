@@ -1,37 +1,38 @@
 {
-    "name": "webpack-reload-test",
-    "description": "sass & js hot reload",
-    "version": "1.0.0",
-    "author": "Joseph Chang",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Joseph7451797/webpack-reload-test.git"
-    },
-    "license": "MIT",
-    "scripts": {
-        "hot-dev": "webpack-dev-server --config webpack-hot-dev-server.config.js --hot --progress --colors --port 8080 --inline",
-        "host": "webpack-dev-server --config webpack-hot-dev-server.config.js --no-info --hot --inline --host $(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1')",
-        "build": "webpack --config webpack.build.config.js -p --progress --profile --colors"
-    },
-    "dependencies": {
-        "jquery": "*"
-    },
-    "devDependencies": {
-        "compass-mixins": "^0.12.7",
-        "css-loader": "^0.9.1",
-        "extract-text-webpack-plugin": "^0.8.2",
-        "file-loader": "^0.8.4",
-        "node-sass": "^3.3.3",
-        "sass-loader": "^3.0.0",
-        "style-loader": "^0.8.3",
-        "url-loader": ">=0.5.5",
-        "webpack": "^1.12.2",
-        "webpack-dev-server": "^1.12.0"
-    },
-    "keywords": [
-        "webpack",
-        "jquery",
-        "sass",
-        "compass"
-    ]
+  "name": "webpack-reload-test",
+  "description": "sass & js hot reload",
+  "version": "1.0.0",
+  "author": "Joseph Chang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Joseph7451797/webpack-reload-test.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "hot-dev": "webpack-dev-server --config webpack-hot-dev-server.config.js --quiet",
+    "host": "webpack-dev-server --config webpack-hot-dev-host.config.js --no-info --hot --inline --host $(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1')",
+    "build": "webpack --config webpack.build.config.js -p --quiet"
+  },
+  "dependencies": {
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "compass-mixins": "^0.12.10",
+    "css-loader": "^0.9.1",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "file-loader": "^0.8.4",
+    "node-sass": "^3.3.3",
+    "sass-loader": "^3.0.0",
+    "style-loader": "^0.8.3",
+    "url-loader": ">=0.5.5",
+    "webpack": "^1.12.2",
+    "webpack-dashboard": "^0.1.7",
+    "webpack-dev-server": "^1.12.0"
+  },
+  "keywords": [
+    "webpack",
+    "jquery",
+    "sass",
+    "compass"
+  ]
 }
