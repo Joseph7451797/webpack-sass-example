@@ -23,3 +23,11 @@
 // -------------------------------------
 
 	@import "partials/index";
+    
+    $tabletNmobile: 999px 0;
+    
+    @include breakpoint($tabletNmobile) { // test breakpoint
+        .banner { 
+            background-color: red;
+        }
+    }

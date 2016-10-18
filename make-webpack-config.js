@@ -27,6 +27,8 @@ module.exports = function(options) {
                     'style-loader',
                     'css-loader!sass-loader?includePaths[]='
                     + path.resolve(__dirname, './node_modules/compass-mixins/lib')
+                    + '&includePaths[]='
+                    + path.resolve(__dirname, './node_modules/breakpoint-sass/stylesheets')
                     )
         }
         ]
@@ -69,11 +71,6 @@ module.exports = function(options) {
         entry: entry,
         output: output,
         module: module,
-        resolve: {
-            alias: {
-                "jquery": __dirname + '/node_modules/jquery/dist/jquery.min.js'
-            }
-        },
         plugins: plugins
     }
 
