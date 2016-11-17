@@ -1,33 +1,33 @@
 /***************************
-*	
+*
 *	Main Style
 *	Edited by Joseph Chang
-* 
+*
 ****************************/
 
 // -------------------------------------
 //  CSS Reset
 // -------------------------------------
 
-	@import "compass/reset";
-	@import "compass";
+    @import "compass/reset";
+    @import "compass";
 
 // -------------------------------------
 //  Breakpoint
 // -------------------------------------
-	
-	@import "breakpoint";
+
+    @import "breakpoint";
 
 // -------------------------------------
 //  Partial  style
 // -------------------------------------
 
-	@import "partials/index";
-    
+    @import "partials/index";
+
     $tabletNmobile: 999px 0;
-    
+
     @include breakpoint($tabletNmobile) { // test breakpoint
-        .banner { 
+        .banner {
             background-color: red;
         }
     }

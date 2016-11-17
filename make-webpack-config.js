@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(options) {
     var entry = {
@@ -10,7 +9,7 @@ module.exports = function(options) {
     };
 
     var output = {
-        publicPath: (options.devMode) ? "http://localhost:8080/build/" : "/build/",
+        publicPath: options.devMode ?  "http://localhost:8080/build/" : "/build/",
         path: __dirname + "/build/",
         filename: "[name].js"
     };
@@ -23,45 +22,40 @@ module.exports = function(options) {
         },
         {
             test   : /\.scss$/,
-            loader : ExtractTextPlugin.extract(
-                    'style-loader',
-                    'css-loader!sass-loader?includePaths[]='
+            loader :'style-loader!css-loader!sass-loader?includePaths[]='
                     + path.resolve(__dirname, './node_modules/compass-mixins/lib')
                     + '&includePaths[]='
                     + path.resolve(__dirname, './node_modules/breakpoint-sass/stylesheets')
-                    )
         }
         ]
     };
 
 
     var plugins = [
-
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
             'root.jQuery': 'jquery'
-        }),
-        new ExtractTextPlugin('./[name].css')
+        })
     ];
 
 
     if(options.build) {
         plugins.push(
-                new webpack.optimize.DedupePlugin(),
-                new webpack.optimize.OccurenceOrderPlugin(),
-                new webpack.optimize.AggressiveMergingPlugin(),
-                new webpack.optimize.UglifyJsPlugin({
-                    compress: {
-                        warnings: false
-                    }
-                })
-                );
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.OccurenceOrderPlugin(),
+            new webpack.optimize.AggressiveMergingPlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            })
+        );
     }else if(options.devMode) {
         plugins.push(
-                new webpack.NoErrorsPlugin()
-                );
+            new webpack.NoErrorsPlugin()
+        );
     }
 
 

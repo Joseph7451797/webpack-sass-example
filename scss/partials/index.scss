@@ -1,15 +1,15 @@
 /***************************
-*	
+*
 *	Index Style
 *	Edited by Joseph Chang
-* 
+*
 ****************************/
 
 .banner {
-	padding: 20px;
-	color: #dfdfdf;
-	text-align: center;
-	font-size: 24px;
-	background-color: rgba(51, 51, 51, 0.9);
-	@include box-shadow(0 0 2px 2px #dfdfdf);
+    padding: 20px;
+    color: #dfdfdf;
+    text-align: center;
+    font-size: 24px;
+    background-color: rgba(51, 51, 51, 0.9);
+    @include box-shadow(0 0 2px 2px #dfdfdf);
 }
