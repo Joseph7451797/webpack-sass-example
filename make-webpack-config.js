@@ -1,7 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
+var publicPath = '';
 
 module.exports = function(options) {
+
+    if(process.env.NODE_ENV === 'host') {
+        publicPath = 'http://' + process.argv[8] + ':8080/build/';
+    }else if(options.devMode) {
+        publicPath = 'http://localhost:8080/build/';
+    }else {
+        publicPath = '/build/';
+    }
+
     var entry = {
         main: [
             "./scss/main.scss"
@@ -9,7 +19,7 @@ module.exports = function(options) {
     };
 
     var output = {
-        publicPath: options.devMode ?  "http://localhost:8080/build/" : "/build/",
+        publicPath: publicPath,
         path: __dirname + "/build/",
         filename: "[name].js"
     };

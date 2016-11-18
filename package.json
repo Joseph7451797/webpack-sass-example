@@ -1,7 +1,7 @@
 {
   "name": "webpack-reload-test",
   "description": "sass & js hot reload",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "author": "Joseph Chang",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "hot-dev": "webpack-dev-server --config webpack-hot-dev-server.config.js --hot --progress --colors --port 8080 --inline",
-    "host": "webpack-dev-server --config webpack-hot-dev-server.config.js --no-info --hot --inline --host $(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1')",
+    "host": "NODE_ENV=host webpack-dev-server --config webpack-hot-dev-server.config.js --no-info --hot --inline --host $(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1')",
     "build": "webpack --config webpack.build.config.js -p --progress --profile --colors"
   },
   "dependencies": {
