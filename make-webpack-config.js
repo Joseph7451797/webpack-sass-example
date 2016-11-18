@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var publicPath = '';
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = function(options) {
 
@@ -62,9 +63,28 @@ module.exports = function(options) {
                 }
             })
         );
-    }else if(options.devMode) {
+    }else if(options.devMode && !process.env.NODE_ENV) {
         plugins.push(
-            new webpack.NoErrorsPlugin()
+            new webpack.NoErrorsPlugin(),
+            new BrowserSyncPlugin(
+              // BrowserSync options
+              {
+                // browse to http://localhost:5000/ during development
+                host: 'localhost',
+                port: 5000,
+                // proxy the Webpack Dev Server endpoint
+                // (which should be serving on http://localhost:8080/)
+                // through BrowserSync
+                proxy: 'http://localhost:8080/',
+                files: ["*.html"]
+              },
+              // plugin options
+              {
+                // prevent BrowserSync from reloading the page
+                // and let Webpack Dev Server take care of this
+                reload: false
+              }
+            )
         );
     }
 
