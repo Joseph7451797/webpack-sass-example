@@ -1,9 +1,7 @@
 # system file
 *.DS_Store
 *.swp
-
-# compiler tool file
-npm-debug.log
+*.log
 
 # node file
 node_modules/

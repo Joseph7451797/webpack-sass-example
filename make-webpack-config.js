@@ -31,11 +31,9 @@ module.exports = function(options) {
             loader: 'url-loader?limit=8192'
         },
         {
-            test   : /\.scss$/,
+            test   : /\.s(a|c)ss$/,
             loader :'style-loader!css-loader!sass-loader?includePaths[]='
                     + path.resolve(__dirname, './node_modules/compass-mixins/lib')
-                    + '&includePaths[]='
-                    + path.resolve(__dirname, './node_modules/breakpoint-sass/stylesheets')
         }
         ]
     };
@@ -59,7 +57,8 @@ module.exports = function(options) {
             new webpack.optimize.UglifyJsPlugin({
                 compress: {
                     warnings: false
-                }
+                },
+                comments: false
             })
         );
     }else if(options.devMode) {
