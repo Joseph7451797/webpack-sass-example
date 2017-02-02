@@ -32,7 +32,7 @@ module.exports = function(options) {
         },
         {
             test   : /\.s(a|c)ss$/,
-            loader :'style-loader!css-loader!sass-loader?includePaths[]='
+            loader :'style-loader!css-loader?sourceMap!sass-loader?includePaths[]='
                     + path.resolve(__dirname, './node_modules/compass-mixins/lib')
         }
         ]
