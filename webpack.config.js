@@ -17,7 +17,7 @@ switch (process.env.NODE_ENV) { // decide mode
         break
 }
 
-var config = function() {
+module.exports = (function() {
 
     var publicPath = '';
 
@@ -82,6 +82,4 @@ var config = function() {
         module: module,
         plugins: plugins
     }
-};
-
-module.exports = config();
+})();
