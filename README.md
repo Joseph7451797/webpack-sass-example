@@ -5,7 +5,7 @@ This is an example of sass/scss and webpack integration.
 **Note:** This example uses webpack v1 and webpack-dev-server v1.
 
 ## Requirements
-- npm >3
+- npm >=3
 
 ## How to use
 

@@ -6,5 +6,5 @@
 # node file
 node_modules/
 
-#built file
+# built file
 build/
