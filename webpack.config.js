@@ -22,7 +22,7 @@ module.exports = (function() {
     var publicPath = '';
 
     if( MODE === 'host' ) {
-        publicPath = 'http://' + process.argv[8] + ':8080/build/';
+        publicPath = 'http://' + process.argv[6] + ':8080/build/';
     }else if( MODE === 'dev' ) {
         publicPath = 'http://localhost:8080/build/';
     }else {
